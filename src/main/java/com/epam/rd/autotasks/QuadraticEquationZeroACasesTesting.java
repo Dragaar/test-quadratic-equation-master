@@ -16,8 +16,8 @@ public class QuadraticEquationZeroACasesTesting {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                { 2, 4, 2 }, { 3, -1, 2 },
-                { 2, 2, -5 }, { 4, 63, 1 }
+                { 0, 4, 2 }, { 0, -1, 2 },
+                { 0, 2, -5 }, { 0, 63, 1 }
         });
     }
 
@@ -25,15 +25,15 @@ public class QuadraticEquationZeroACasesTesting {
 
     private double a; private double b; private double c;
     public QuadraticEquationZeroACasesTesting(double a, double b, double c) {
-        if(a == 0) this.a = 1;
-        else this.a = a;
+        this.a = a;
         this.b = b;
         this.c = c;
     }
     @Test(expected = IllegalArgumentException.class)
     public void testTwoRoots() {
+
         String equationResult = quadraticEquation.solve(a, b, c);
-        if(equationResult != null) throw new IllegalArgumentException();
+        if(equationResult == "no roots") throw new IllegalArgumentException();
 
     }
 

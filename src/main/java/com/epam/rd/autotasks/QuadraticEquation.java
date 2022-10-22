@@ -3,8 +3,10 @@ package com.epam.rd.autotasks;
 public class QuadraticEquation {
     public String solve(double a, double b, double c) {
 
-        if(a != 0 && a != 1) throw new IllegalArgumentException();
-        else a = 1;
+        //if(a != 0 && a != 1) throw new IllegalArgumentException();
+        //else a = 1;
+        if(a == 0) throw new IllegalArgumentException();
+
 
         double D = b * b - 4 * a * c;
         System.out.println(" D = "+ D + "; ");
